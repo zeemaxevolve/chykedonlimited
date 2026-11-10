@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" width="400" height="340" role="img" aria-label="Image coming soon">
+  <rect width="400" height="340" fill="#f1f5f9"/>
+  <g transform="translate(160 90) scale(1.65)">
+    <polygon points="24,2 43.05,13 43.05,35 24,46 4.95,35 4.95,13" fill="#0B1D36" opacity="0.9"/>
+    <path d="M31.78 16.22 A11 11 0 1 0 31.78 31.78" fill="none" stroke="#00C9A7" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="34" cy="24" r="2.8" fill="#ffffff"/>
+  </g>
+  <text x="200" y="215" text-anchor="middle" font-family="Inter,'Segoe UI',Arial,sans-serif" font-size="18" font-weight="600" fill="#64748b">Image coming soon</text>
+  <text x="200" y="240" text-anchor="middle" font-family="Inter,'Segoe UI',Arial,sans-serif" font-size="13" fill="#94a3b8">Request a quote for details</text>
+</svg>

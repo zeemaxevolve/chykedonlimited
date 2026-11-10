@@ -7,7 +7,7 @@
   <meta name="description" content="Browse our range of industrial chemicals – acids, bases, solvents, water treatment, food and pharma grades. Request a quote on WhatsApp.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0B1D36">
-  <link rel="canonical" href="https://www.chykedonlimited.com/products.html">
+  <link rel="canonical" href="https://chykedonlimited.online/products.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -15,8 +15,8 @@
   <meta property="og:locale" content="en_NG">
   <meta property="og:title" content="Industrial Chemicals Catalog | Chyke Don Limited">
   <meta property="og:description" content="Browse our range of industrial chemicals – acids, bases, solvents, water treatment, food and pharma grades. Request a quote on WhatsApp.">
-  <meta property="og:url" content="https://www.chykedonlimited.com/products.html">
-  <meta property="og:image" content="https://www.chykedonlimited.com/assets/og-image.png">
+  <meta property="og:url" content="https://chykedonlimited.online/products.html">
+  <meta property="og:image" content="https://chykedonlimited.online/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Chyke Don Limited – industrial chemicals in bulk">
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Industrial Chemicals Catalog | Chyke Don Limited">
   <meta name="twitter:description" content="Browse our range of industrial chemicals – acids, bases, solvents, water treatment, food and pharma grades. Request a quote on WhatsApp.">
-  <meta name="twitter:image" content="https://www.chykedonlimited.com/assets/og-image.png">
+  <meta name="twitter:image" content="https://chykedonlimited.online/assets/og-image.png">
   <link rel="icon" type="image/svg+xml" href="./assets/logo-mark.svg">
   <link rel="stylesheet" href="./src/styles.css">
   <style>
@@ -45,6 +45,7 @@
     }
     .search-inline input {
       flex: 1;
+      min-width: 0;
       padding: 0.75rem 1rem;
       border: 1.5px solid var(--border);
       border-radius: 10px;
@@ -57,6 +58,7 @@
       box-shadow: 0 0 0 3px rgba(0, 201, 167, 0.12);
     }
     .search-inline button {
+      flex-shrink: 0;
       background: var(--navy);
       color: white;
       padding: 0 1.1rem;
@@ -254,7 +256,7 @@
       return `
         <article class="product-card">
           <div class="product-img-wrap">
-            ${img ? `<img src="${img}" alt="${escapeHtml(p.name)}" loading="lazy">` : '<span style="color:#94a3b8;font-size:0.85rem;">No image</span>'}
+            ${img ? `<img src="${img}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='./assets/placeholder.svg'">` : '<span style="color:#94a3b8;font-size:0.85rem;">No image</span>'}
           </div>
           <div class="product-body">
             <div class="product-category">${escapeHtml(p.category || '')}</div>

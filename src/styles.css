@@ -823,7 +823,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .hero-grid > * { min-width: 0; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
   .hamburger { display: block; }
@@ -903,6 +904,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* Long words / content never force horizontal scroll */
+.hero-badge { max-width: 100%; white-space: normal; line-height: 1.35; }
+.search-form input, .search-inline input { min-width: 0; }
+.search-form button { flex-shrink: 0; }
 h1, h2, h3, p, a { overflow-wrap: anywhere; }
 .pagination { gap: 0.3rem; }
 

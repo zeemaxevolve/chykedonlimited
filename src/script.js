@@ -23,7 +23,7 @@ function productCardHTML(p) {
   return `
     <article class="product-card" data-name="${escapeHtml(p.name)}">
       <div class="product-img-wrap">
-        ${img ? `<img src="${img}" alt="${escapeHtml(p.name)}" loading="lazy">` : '<span style="color:#94a3b8;font-size:0.85rem;">No image</span>'}
+        ${img ? `<img src="${img}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='./assets/placeholder.svg'">` : '<span style="color:#94a3b8;font-size:0.85rem;">No image</span>'}
       </div>
       <div class="product-body">
         <div class="product-category">${escapeHtml(p.category || '')}</div>
