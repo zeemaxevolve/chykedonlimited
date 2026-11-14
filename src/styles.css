@@ -867,19 +867,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .nav-links.open { top: 64px; }
   .btn-quote { padding: 0.55rem 0.85rem; font-size: 0.8rem; }
   .nav-brand { font-size: 1.15rem; }
-  /* two product cards per row on phones */
-  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-  .product-body { padding: 0.85rem 0.8rem 1rem; }
-  .product-name { font-size: 0.92rem; }
-  .product-category { font-size: 0.64rem; }
-  .meta-tag { font-size: 0.66rem; padding: 0.18rem 0.45rem; }
-  .btn-card { padding: 0.55rem 0.4rem; font-size: 0.8rem; }
-  .product-actions { flex-wrap: wrap; }
+  /* one product card per row on phones */
+  .products-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+  .product-body { padding: 1rem 1.1rem 1.2rem; }
+  .btn-card { padding: 0.7rem 0.6rem; font-size: 0.9rem; }
+  /* compact pagination so it fits one line */
+  .page-btn { min-width: 34px; height: 36px; font-size: 0.85rem; border-radius: 8px; }
   .search-inline { max-width: 100%; flex-basis: 100%; }
 }
 
 @media (max-width: 360px) {
-  .products-grid { grid-template-columns: 1fr; }
   .btn-quote { display: none; }
 }
 
@@ -909,6 +906,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .search-form button { flex-shrink: 0; }
 h1, h2, h3, p, a { overflow-wrap: anywhere; }
 .pagination { gap: 0.3rem; }
+@media (max-width: 600px) { .pagination { gap: 0.2rem; } }
 
 /* Utility */
 .hidden { display: none !important; }

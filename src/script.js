@@ -47,8 +47,11 @@ function renderHomeProducts() {
   const pills = $('#home-category-pills');
   if (!grid) return;
 
+  const mobileMQ = window.matchMedia('(max-width: 600px)');
+  const cap = () => (mobileMQ.matches ? 7 : 12);
   const limit = homeFeaturedLimit || 12;
-  const featured = chemicalProducts.slice(0, Math.min(limit, 12));
+  const featuredAll = chemicalProducts.slice(0, Math.min(limit, 12));
+  let featured = featuredAll.slice(0, cap());
 
   // categories
   if (pills) {
@@ -62,7 +65,7 @@ function renderHomeProducts() {
       $$('.pill', pills).forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const cat = btn.dataset.cat;
-      const list = cat === 'all' ? featured : chemicalProducts.filter(p => p.category === cat).slice(0, 12);
+      const list = cat === 'all' ? featuredAll.slice(0, cap()) : chemicalProducts.filter(p => p.category === cat).slice(0, cap());
       grid.innerHTML = list.map(productCardHTML).join('');
     });
   }

@@ -239,7 +239,8 @@
   <script type="module">
     import { chemicalProducts } from './src/products-data.js';
 
-    const PER_PAGE = 12;
+    const mobileMQ = window.matchMedia('(max-width: 600px)');
+    const perPage = () => (mobileMQ.matches ? 7 : 12);
     let currentPage = 1;
     let currentCat = 'all';
     let currentQuery = '';
@@ -291,10 +292,10 @@
     function render() {
       const list = getFiltered();
       const total = list.length;
-      const pages = Math.max(1, Math.ceil(total / PER_PAGE));
+      const pages = Math.max(1, Math.ceil(total / perPage()));
       if (currentPage > pages) currentPage = 1;
-      const start = (currentPage - 1) * PER_PAGE;
-      const pageItems = list.slice(start, start + PER_PAGE);
+      const start = (currentPage - 1) * perPage();
+      const pageItems = list.slice(start, start + perPage());
 
       const grid = $('#catalog-grid');
       const empty = $('#empty-state');
@@ -310,14 +311,14 @@
 
       info.textContent = total === 0
         ? 'No products found'
-        : `Showing ${start + 1}–${Math.min(start + PER_PAGE, total)} of ${total} products`;
+        : `Showing ${start + 1}–${Math.min(start + perPage(), total)} of ${total} products`;
 
       // pagination
       const pag = $('#pagination');
       if (pages <= 1) { pag.innerHTML = ''; return; }
       let html = `<button class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>‹</button>`;
       for (let i = 1; i <= pages; i++) {
-        if (pages > 7 && Math.abs(i - currentPage) > 2 && i !== 1 && i !== pages) {
+        if (pages > 7 && Math.abs(i - currentPage) > (mobileMQ.matches ? 1 : 2) && i !== 1 && i !== pages) {
           if (i === 2 || i === pages - 1) html += `<span style="padding:0 0.3rem;color:#94a3b8;">…</span>`;
           continue;
         }
@@ -366,6 +367,7 @@
     }
 
     render();
+    mobileMQ.addEventListener('change', () => { currentPage = 1; render(); });
 
     // Shared RFQ + nav (from main script patterns)
     function openRFQ(product = '') {
